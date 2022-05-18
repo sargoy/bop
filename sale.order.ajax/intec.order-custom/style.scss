@@ -1,0 +1,510 @@
+$namespace: 'bitrix';
+$component: 'sale-order-ajax';
+$template: 'simple-1';
+$class: $component;
+
+.ns-#{$namespace}.c-#{$component}.c-#{$component}-#{$template} {
+  text-align: left;
+  font-weight: normal;
+  font-style: normal;
+  line-height: normal;
+  word-spacing: normal;
+  white-space: normal;
+  color: #2d2d2d;
+
+  #bx-soa-order {
+    transition: 500ms opacity ease;
+    counter-reset: heading;
+    position: relative;
+  }
+  .form-group.bx-soa-customer-field[data-property-id-row="71"],
+  .form-group.bx-soa-customer-field[data-property-id-row="72"] {
+    display: none;
+  }
+  .bx-soa {
+    padding-bottom: 20px;
+  }
+
+  @import "./styles/controls.scss";
+  @import "./styles/sections.scss";
+  @import "./styles/auth.scss";
+  @import "./styles/sidebar.scss";
+  @import "./styles/pickup.scss";
+  @import "./styles/items.scss";
+  @import "./styles/coupon.scss";
+  @import "./styles/pages.scss";
+
+  @media all and (min-width: 992px) and (max-width: 1100px) {
+    .bx-soa {
+      width: 70%;
+    }
+
+    .bx-soa-sidebar {
+      width: 30%;
+    }
+  }
+
+  @media all and (max-width: 992px) {
+    .bx-soa {
+      width: 100%;
+    }
+  }
+
+  // Delivery and Payment blocks
+
+  .bx-soa-delivery-and-paysystem {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-box-align: stretch !important;
+    -ms-flex-align: stretch !important;
+    align-items: stretch !important;
+
+    -ms-flex-wrap: wrap !important;
+    flex-wrap: wrap !important;
+
+  }
+
+  .bx-soa-delivery-and-paysystem-item {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding: 10px;
+
+    -webkit-box-flex: 0;
+
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    &.bx-soa-delivery-and-paysystem-item-full {
+      -ms-flex: 0 0 100%;
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    @media all and (max-width: 900px) {
+      -ms-flex: 0 0 100%;
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+  .sale-order-ajax-wrapper__bg {
+    background: #F8F8F8;
+  }
+  .form-group.bx-soa-customer-field[data-property-id-row = '71'] {
+    display: none;
+  }
+  // Delivery block
+  #bx-soa-delivery .alert-warning {
+    display: none;
+  }
+
+  #bx-soa-paysystem-and-delivery {
+    margin-bottom: 20px;
+  }
+
+  #bx-soa-paysystem,
+  #bx-soa-delivery {
+    margin-bottom: 0;
+  }
+  #bx-soa-paysystem,
+  #delivery_custom_map_box,
+  #bx-soa-properties {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  #delivery_custom_map_box .bx-soa-section-title {
+    margin-bottom: 35px;
+  }
+
+  #bx-soa-delivery {
+    width: 100%;
+  }
+  .bx-soa-buyer-and-paysystem-item {
+    //display: flex;
+    //flex-wrap: wrap;
+  }
+  #bx-soa-delivery .bx-soa-pp-item-container {
+    display: flex;
+  }
+  #bx-soa-delivery .bx-soa-pp-item-container .bx-soa-pp-company {
+    background: #FFFFFF;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    width: 35%;
+    height: 170px;
+    margin-right: 30px;
+    padding: 12px 18px;
+    & .bx-soa-pp-company {
+      width: 100%;
+      height: auto;
+      padding: 0;
+      box-shadow: none;
+      text-align: center;
+    }
+  }
+  @media screen and (max-width: 991px) {
+    #bx-soa-delivery .bx-soa-pp-item-container .bx-soa-pp-company {
+      width: 48%;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    #bx-soa-paysystem,
+    #delivery_custom_map_box,
+    #bx-soa-properties {
+      -ms-flex: 0 0 100%;
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    #bx-soa-delivery .bx-soa-pp-item-container {
+      flex-wrap: wrap;
+    }
+    #bx-soa-delivery .bx-soa-pp-item-container .bx-soa-pp-company {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  }
+  // checkboxes
+  // location
+  #bx-soa-region .form-group.bx-soa-location-input-container,
+  #bx-soa-region .bx-soa-reference {
+    display: none;
+  }
+  #bx-soa-region .bx-soa-section-content {
+    padding-bottom: 0;
+  }
+  #bx-soa-region .bx_soa_location .form-group .radio-inline label {
+    position: relative;
+  }
+  #bx-soa-region .bx_soa_location .form-group .radio-inline label::after {
+    background-color: #fafafa !important;
+  }
+  #bx-soa-region .bx_soa_location .form-group .radio-inline.radio-inline-checked label::before,
+  #bx-soa-region .bx_soa_location .form-group label:hover::before,
+  #bx-soa-region .bx_soa_location .form-group .radio-inline:hover label::before{
+    background-color: #fafafa !important;
+  }
+  #bx-soa-region .bx_soa_location .form-group .radio-inline.radio-inline-checked label::after,
+  #bx-soa-region .bx_soa_location .form-group .radio-inline:hover label::after,
+  #bx-soa-region .bx_soa_location .form-group label:hover::after {
+    background-color: #04BECA !important;
+    width: 14px;
+    height: 14px;
+    top: 3px;
+    left: 3px;
+    opacity: 1;
+  }
+  #bx-soa-delivery .bx-soa-pp-item-container .bx-soa-pp-company:last-child {
+    margin: 0;
+  }
+  #bx-soa-delivery .bx-soa-pp-item-container .bx-soa-pp-company .bx-soa-pp-company-graf-container {
+    background-color: #fafafa!important;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 23px;
+  }
+  #bx-soa-delivery .bx-soa-pp-item-container .bx-soa-pp-company {
+    & .bx-soa-pp-company-smalltitle,.bx-soa-pp-delivery-cost,.bx-soa-pp-company-parameters {
+      padding-left: 0;
+      padding-bottom: 15px;
+      min-height: 47px;
+    }
+  }
+  #bx-soa-delivery .bx-soa-pp-item-container .bx-soa-pp-company:hover .bx-soa-pp-company-graf-container {
+    background-color: #fafafa!important;
+  }
+  #bx-soa-delivery .bx-soa-pp-item-container .bx-soa-pp-company .bx-soa-pp-company-parameters {
+    display: none;
+    padding-left: 0;
+    padding-bottom: 0;
+  }
+  .bx-soa-pp {
+    display: block;
+  }
+
+  // Paysystem block
+  .covid-info {
+    padding-left: 25px;
+    margin-bottom: 25px;
+    &__img {
+      margin-bottom: 7px;
+    }
+    &__text {
+      font-size: 13px;
+      font-weight: 500;
+    }
+  }
+  #bx-soa-paysystem .bx-soa-pp-item-container .bx-soa-pp-company .bx-soa-pp-company-graf-container {
+    background-color: #fafafa !important;
+  }
+  #bx-soa-paysystem .bx-soa-pp-item-container .bx-soa-pp-company:first-child {
+    //background-color: #04BECA;
+    //padding: 24px 24px 22px 24px;
+    //margin-left: -24px;
+    //width: 100%;
+    margin-bottom: 20px;
+  }
+  // static First elem
+  #bx-soa-paysystem .bx-soa-pp-item-container .bx-soa-pp-company:first-child .bx-soa-pp-company-graf-container {
+    position: absolute;
+    top: 50%;
+    //left: 24px;
+    transform: translateY(-50%);
+    background-color: #04BECA;
+    //border-color: #fafafa;
+  }
+  // selected
+  #bx-soa-paysystem .bx-soa-pp-item-container .bx-selected.bx-soa-pp-company:first-child .bx-soa-pp-company-graf-container {
+    border-color: #04BECA!important;
+  }
+  //hover First elem
+  #bx-soa-paysystem .bx-soa-pp-item-container .bx-soa-pp-company:first-child:hover .bx-soa-pp-company-graf-container {
+    border-color: #04BECA!important;
+    background-color: #fafafa!important;
+  }
+  #bx-soa-paysystem .bx-soa-pp-item-container .bx-soa-pp-company:first-child:hover .bx-soa-pp-company-graf-container:after {
+    opacity: 1;
+    background-color: #04BECA;
+  }
+  #bx-soa-paysystem .bx-soa-pp-item-container .bx-soa-pp-company:first-child .bx-soa-pp-company-smalltitle {
+    //color: #fafafa;
+    padding-bottom: 0;
+  }
+  #bx-soa-paysystem .bx-soa-pp-item-container .bx-soa-pp-company:hover .bx-soa-pp-company-graf-container:after,
+  #bx-soa-delivery .bx-soa-pp-item-container .bx-soa-pp-company:hover .bx-soa-pp-company-graf-container:after {
+    opacity: 1;
+  }
+  .bx-soa-pp-item-container {
+    display: block;
+    cursor: pointer;
+
+    .bx-soa-pp-company {
+      display: block;
+      position: relative;
+      margin-top: 0;
+
+      &:hover {
+        .bx-soa-pp-company-graf-container {
+          background: #0065ff;
+          border-color: #0065ff;
+        }
+      }
+
+      &.bx-selected {
+        .bx-soa-pp-company-graf-container {
+          background: #0065ff;
+          border-color: #0065ff;
+
+          &:after {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    .bx-soa-pp-company-graf-container {
+      position: absolute;
+      top: 1px;
+      right: auto;
+      bottom: auto;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #fafafa;
+      border: 1px solid #04BECA;
+
+      -webkit-transition-property: background-color, border-color;
+      -moz-transition-property: background-color, border-color;
+      -ms-transition-property: background-color, border-color;
+      -o-transition-property: background-color, border-color;
+      transition-property: background-color, border-color;
+
+      -webkit-transition-duration: 350ms;
+      -moz-transition-duration: 350ms;
+      -ms-transition-duration: 350ms;
+      -o-transition-duration: 350ms;
+      transition-duration: 350ms;
+
+      input {
+        display: none;
+      }
+
+      &:after {
+        content: ' ';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #04BECA;
+        opacity: 0;
+
+        -webkit-transition: opacity 350ms;
+        -moz-transition: opacity 350ms;
+        -ms-transition: opacity 350ms;
+        -o-transition: opacity 350ms;
+        transition: opacity 350ms;
+      }
+    }
+
+    %bx-soa-pp-item-part {
+      display: block;
+      padding-left: 35px;
+      line-height: 1.5;
+    }
+
+    .bx-soa-pp-company-smalltitle {
+      @extend %bx-soa-pp-item-part;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 16px;
+      color: #1d1d1d;
+      padding-top: 5px;
+    }
+
+    .bx-soa-pp-delivery-cost {
+      @extend %bx-soa-pp-item-part;
+
+      font-size: 12px;
+      color: #6d6d6d;
+
+      span {
+        padding: 4px 10px;
+        border-radius: 12px;
+        background: #f1f1f1;
+      }
+    }
+
+    .bx-soa-pp-company-parameters {
+      @extend %bx-soa-pp-item-part;
+
+      .bx-soa-pp-desc-container {
+        margin: 0;
+      }
+
+      .bx-soa-pp-list {
+        list-style: none;
+        margin: 0;
+        padding: 15px 0 0 0;
+        line-height: 1.5;
+        font-size: 12px;
+        font-weight: normal;
+
+        .bx-soa-pp-list-termin {
+          font-weight: bold;
+          color: #6e6e6e;
+        }
+
+        .bx-soa-pp-list-description {
+          color: #888;
+        }
+      }
+
+      .bx-soa-pp-company-block {
+        padding-top: 15px;
+      }
+
+      .bx-soa-pp-field {
+        margin: 8px 0 0 0;
+
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+
+      .bx-soa-service-small {
+        font-size: 12px;
+        font-weight: normal;
+        color: #888;
+        margin-top: 2px;
+      }
+    }
+
+    .bx-soa-pp-company-description {
+      @extend %bx-soa-pp-item-part;
+
+      font-size: 13px;
+      color: #6d6d6d;
+      padding-top: 0;
+      padding-left: 0;
+      padding-bottom: 15px;
+    }
+  }
+
+  .bx-soa-pp-desc-container {
+    margin-top: 30px;
+    margin-bottom: 10px;
+
+    .bx-soa-pp-company {
+      display: block;
+    }
+
+    .bx-soa-pp-company-desc {
+      font-size: 13px;
+      color: #6d6d6d;
+    }
+  }
+
+  .bx-scu-container {
+    position: relative;
+    overflow: hidden;
+
+    .bx-soa-item-td-title,
+    .bx-soa-item-td-text {
+      padding-right: 5px;
+      line-height: 20px;
+      padding-bottom: 0;
+    }
+
+    .bx-soa-item-td-title {
+      float: left;
+      clear: both;
+    }
+
+    .bx-soa-item-td-text {
+      float: left;
+      font-size: 13px;
+      vertical-align: middle;
+    }
+  }
+}
+
+#loading_screen {
+  position: fixed;
+  z-index: 1150;
+  left: 50%;
+  top: 50%;
+  margin-left: -32px;
+  margin-top: -32px;
+  width: 64px;
+  height: 64px;
+}
+@media all and (max-width: 767px){
+  .ns-bitrix.c-sale-order-ajax.c-sale-order-ajax-simple-1 .bx-soa-section-content {
+    padding: 15px 0;
+  }
+  .ns-bitrix.c-sale-order-ajax.c-sale-order-ajax-simple-1 .bx-soa-section-title-container {
+    padding: 15px 0 5px 0;
+  }
+  .ns-bitrix.c-sale-order-ajax.c-sale-order-ajax-simple-1 .bx-soa-delivery-and-paysystem-item {
+    padding: 10px 0;
+  }
+  .ns-bitrix.c-sale-order-ajax.c-sale-order-ajax-simple-1 #bx-soa-paysystem .bx-soa-pp-item-container .bx-soa-pp-company:first-child {
+    width: auto;
+  }
+  .ns-bitrix.c-sale-order-ajax.c-sale-order-ajax-simple-1 #bx-soa-orderSave .bx-soa-orderSave-button {
+    text-align: center;
+  }
+  .covid-info {
+    padding-left: 15px!important;
+  }
+}

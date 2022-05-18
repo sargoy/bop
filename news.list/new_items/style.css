@@ -1,0 +1,41 @@
+.card-product__desc {
+    position: absolute;
+    top: 65px;
+    left: 25px;
+    color: #fff;
+}
+.card-product__btn {
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform:translateX(-50%);
+    padding: 5px 25px 7px 25px;
+    width: calc(100% - 60px);
+    margin-bottom: 25px;
+    background-color: #FFFFFF;
+    color: #000;
+    text-align: center;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    font-size: 17px;
+    line-height: 21px;
+}
+.card-product__btn:hover {
+    text-decoration: none;
+    color: #000;
+}
+.swiper-lazy-preloader {
+    --swiper-preloader-color: #04beca;
+}
+.news_items--min-h {
+    min-height: 100vh;
+}
+@media screen and (max-width: 767px) {
+    .swiper-nav--mob {
+        width: 106%;
+        position: relative;
+        top: 220px;
+        left: -3%;
+    }
+}
